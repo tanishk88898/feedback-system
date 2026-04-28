@@ -2,6 +2,14 @@
 
 A .NET MVC web application for collecting, browsing, and managing customer feedback. The app uses SQLite for persistence and includes a simple admin flow for reviewing, editing, and deleting submissions.
 
+## Quick Start
+
+1. Install the .NET 10 SDK.
+2. Set `AdminAccess:AccessKey` in `FeedbackSystem/appsettings.json`.
+3. Run `dotnet run --project FeedbackSystem/FeedbackSystem.csproj`.
+4. Open the local URL shown in the terminal.
+5. Go to `/Feedback/AdminLogin` to access the admin side.
+
 ## Features
 
 - Submit feedback with a name, email, rating, and comments
