@@ -48,3 +48,10 @@ The app starts on the default Feedback index page.
 - Feedback data is stored in `feedbacksystem.db`.
 - The default route points to the feedback list so the application is ready to use immediately.
 - Admin features require the local `AdminAccess:AccessKey` value to match the key you enter on the admin login page.
+
+## Admin Access
+
+- Admin login page: `/Feedback/AdminLogin`
+- Admin dashboard: `/Feedback/Admin`
+- Set `AdminAccess:AccessKey` in `FeedbackSystem/appsettings.json` before logging in.
+- After running the app, open the local URL shown in the terminal, then navigate to the admin login page.
