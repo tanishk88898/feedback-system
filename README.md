@@ -19,15 +19,26 @@ A .NET MVC web application for collecting, browsing, and managing customer feedb
 
 ## Getting Started
 
-1. Install the .NET 10 SDK.
+### Prerequisites
+
+- .NET 10 SDK
+- SQLite is included through the application database file
+
+### Run Locally
+
+1. Clone the repository.
 2. Open the solution file: `c# project.sln`.
 3. Update the connection string in `FeedbackSystem/appsettings.json` if needed.
 4. Set `AdminAccess:AccessKey` locally before using the admin login page. Do not commit the real key to the repository; keep it in your local config or environment.
-5. Run the application:
+5. Restore and run the project:
 
 ```bash
+dotnet restore
+dotnet build
 dotnet run --project FeedbackSystem/FeedbackSystem.csproj
 ```
+
+6. Open the app in your browser using the URL shown in the terminal.
 
 The app starts on the default Feedback index page.
 
