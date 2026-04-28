@@ -1,0 +1,242 @@
+:root {
+  --bg-main: #f8f4ee;
+  --bg-secondary: #fffaf3;
+  --card-bg: rgba(255, 255, 255, 0.78);
+  --text-main: #2b2f36;
+  --text-muted: #646e7a;
+  --line-soft: #e8ddd0;
+  --accent: #d26a35;
+  --accent-strong: #bc5321;
+  --ink-blue: #16324f;
+}
+
+html {
+  font-size: 16px;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Manrope", "Segoe UI Variable", "Trebuchet MS", sans-serif;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at 8% 4%, rgba(210, 106, 53, 0.14), transparent 40%),
+    radial-gradient(circle at 85% 15%, rgba(22, 50, 79, 0.1), transparent 45%),
+    linear-gradient(160deg, var(--bg-main) 0%, var(--bg-secondary) 100%);
+  min-height: 100vh;
+}
+
+.bg-orb {
+  position: fixed;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(1px);
+  z-index: -1;
+}
+
+.bg-orb-one {
+  width: 220px;
+  height: 220px;
+  top: -40px;
+  right: 4%;
+  background: rgba(210, 106, 53, 0.22);
+}
+
+.bg-orb-two {
+  width: 180px;
+  height: 180px;
+  bottom: 10%;
+  left: 3%;
+  background: rgba(22, 50, 79, 0.15);
+}
+
+.brand-nav {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: linear-gradient(125deg, #17314d 0%, #254a70 48%, #d26a35 100%);
+  border-radius: 18px;
+  box-shadow: 0 18px 30px rgba(22, 50, 79, 0.2);
+}
+
+.navbar-brand {
+  letter-spacing: 0.2px;
+}
+
+.brand-nav .navbar-brand,
+.brand-nav .navbar-brand:hover,
+.brand-nav .navbar-brand:focus {
+  color: #ffffff;
+}
+
+.nav-pills-custom {
+  gap: 0.25rem;
+}
+
+.nav-pills-custom .nav-link {
+  color: #f7f3ef;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.nav-pills-custom .nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+.page-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--ink-blue);
+  margin-bottom: 0.35rem;
+}
+
+.page-subtitle {
+  color: var(--text-muted);
+  margin-bottom: 0;
+}
+
+.feedback-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.stats-chip {
+  background: linear-gradient(145deg, #fff6ea, #fde5cf);
+  border: 1px solid #f0ccb0;
+  color: #8a3f1a;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  font-size: 0.95rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.feedback-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--line-soft);
+  border-radius: 20px;
+  padding: 1.3rem;
+  box-shadow: 0 16px 28px rgba(43, 47, 54, 0.08);
+}
+
+.btn-brand {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.btn-brand:hover {
+  background-color: var(--accent-strong);
+  border-color: var(--accent-strong);
+  color: #ffffff;
+}
+
+.btn-outline-secondary {
+  border-color: #b5b9bf;
+  color: #3f4650;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #eceef1;
+  color: #2b2f36;
+}
+
+.form-control,
+.form-select,
+textarea.form-control {
+  border-color: #d9d1c6;
+  border-radius: 12px;
+  padding: 0.6rem 0.75rem;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea.form-control:focus {
+  border-color: #d8895f;
+  box-shadow: 0 0 0 0.2rem rgba(210, 106, 53, 0.18);
+}
+
+.rating-badge {
+  background: #1f456b;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.42rem 0.58rem;
+}
+
+.table {
+  margin-bottom: 0;
+}
+
+.table th {
+  color: #45515f;
+  font-weight: 800;
+  border-bottom-color: #d8cfc2;
+}
+
+.table td {
+  border-color: #e9e0d5;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(255, 248, 239, 0.75);
+}
+
+.alert {
+  border-radius: 12px;
+  border: 1px solid transparent;
+}
+
+.alert-success {
+  background: #e8f8ee;
+  border-color: #bde5cb;
+  color: #215737;
+}
+
+.alert-warning {
+  background: #fff6df;
+  border-color: #f2d394;
+  color: #704f0f;
+}
+
+.footer {
+  padding: 0.9rem 0 1.2rem;
+}
+
+.footer-box {
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.68);
+  border-radius: 12px;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 992px) {
+  .nav-pills-custom {
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .feedback-card {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+  }
+
+  .stats-chip {
+    font-size: 0.88rem;
+  }
+
+  .table {
+    min-width: 680px;
+  }
+}

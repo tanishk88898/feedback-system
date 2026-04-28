@@ -1,0 +1,96 @@
+@model FeedbackSystem.Models.FeedbackListViewModel
+@{
+    bool isAdminView = string.Equals(ViewContext.RouteData.Values["action"]?.ToString(), "Admin", StringComparison.OrdinalIgnoreCase);
+    ViewData["Title"] = isAdminView ? "Admin - Feedback Entries" : "Feedback Entries";
+}
+
+@if (TempData["SuccessMessage"] is string message)
+{
+    <div class="alert alert-success">@message</div>
+}
+
+<div class="feedback-header">
+    <div>
+        <h1 class="page-title">@(isAdminView ? "Admin Feedback Dashboard" : "Feedback Entries")</h1>
+        <p class="page-subtitle">Browse feedback, search comments, and monitor ratings.</p>
+    </div>
+    <div class="stats-chip">
+        Average Rating: <strong>@Model.AverageRating.ToString("0.00")</strong> / 5
+    </div>
+</div>
+
+<div class="feedback-card mb-4">
+    <form method="get" asp-action="@(isAdminView ? "Admin" : "Index")" class="row g-3 align-items-end">
+        <div class="col-md-6">
+            <label for="searchTerm" class="form-label">Search</label>
+            <input id="searchTerm" name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Name, email, or comment" />
+        </div>
+        <div class="col-md-3">
+            <label for="ratingFilter" class="form-label">Rating</label>
+            <select id="ratingFilter" name="ratingFilter" class="form-select">
+                <option value="">All ratings</option>
+                @for (int rating = 1; rating <= 5; rating++)
+                {
+                    if (Model.RatingFilter == rating)
+                    {
+                        <option value="@rating" selected>@rating star(s)</option>
+                    }
+                    else
+                    {
+                        <option value="@rating">@rating star(s)</option>
+                    }
+                }
+            </select>
+        </div>
+        <div class="col-md-3 d-flex gap-2">
+            <button type="submit" class="btn btn-brand flex-grow-1">Filter</button>
+            <a asp-action="@(isAdminView ? "Admin" : "Index")" class="btn btn-outline-secondary">Reset</a>
+        </div>
+    </form>
+</div>
+
+<div class="feedback-card">
+    @if (Model.FeedbackEntries.Count == 0)
+    {
+        <p class="mb-0">No feedback entries found.</p>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Rating</th>
+                    <th>Comments</th>
+                    <th>Submitted</th>
+                    @if (isAdminView)
+                    {
+                        <th>Actions</th>
+                    }
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var entry in Model.FeedbackEntries)
+                {
+                    <tr>
+                        <td>@entry.Name</td>
+                        <td>@entry.Email</td>
+                        <td><span class="badge rating-badge">@entry.Rating/5</span></td>
+                        <td>@entry.Comments</td>
+                        <td>@entry.SubmittedAtUtc.ToLocalTime().ToString("dd MMM yyyy, hh:mm tt")</td>
+                        @if (isAdminView)
+                        {
+                            <td class="text-nowrap">
+                                <a asp-action="Edit" asp-route-id="@entry.Id" class="btn btn-sm btn-outline-primary">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@entry.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                            </td>
+                        }
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

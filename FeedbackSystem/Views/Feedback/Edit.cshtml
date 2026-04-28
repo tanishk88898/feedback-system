@@ -1,0 +1,51 @@
+@model FeedbackSystem.Models.FeedbackEntry
+@{
+    ViewData["Title"] = "Edit Feedback";
+}
+
+<div class="feedback-card">
+    <h1 class="page-title">Edit Feedback</h1>
+
+    <form asp-action="Edit" method="post" novalidate>
+        <input type="hidden" asp-for="Id" />
+        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Rating" class="form-label"></label>
+            <select asp-for="Rating" class="form-select">
+                @for (int rating = 1; rating <= 5; rating++)
+                {
+                    <option value="@rating">@rating</option>
+                }
+            </select>
+            <span asp-validation-for="Rating" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Comments" class="form-label"></label>
+            <textarea asp-for="Comments" class="form-control" rows="5"></textarea>
+            <span asp-validation-for="Comments" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex gap-2">
+            <button type="submit" class="btn btn-brand">Save Changes</button>
+            <a asp-action="Admin" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
