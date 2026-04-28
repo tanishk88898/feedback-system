@@ -21,8 +21,9 @@ A .NET MVC web application for collecting, browsing, and managing customer feedb
 
 1. Install the .NET 10 SDK.
 2. Open the solution file: `c# project.sln`.
-3. Update the connection string and admin access key in `FeedbackSystem/appsettings.json` if needed.
-4. Run the application:
+3. Update the connection string in `FeedbackSystem/appsettings.json` if needed.
+4. Set `AdminAccess:AccessKey` locally before using the admin login page. Do not commit the real key to the repository; keep it in your local config or environment.
+5. Run the application:
 
 ```bash
 dotnet run --project FeedbackSystem/FeedbackSystem.csproj
@@ -35,3 +36,4 @@ The app starts on the default Feedback index page.
 - The database is created and migrated automatically on startup.
 - Feedback data is stored in `feedbacksystem.db`.
 - The default route points to the feedback list so the application is ready to use immediately.
+- Admin features require the local `AdminAccess:AccessKey` value to match the key you enter on the admin login page.
